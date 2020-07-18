@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mysqlapp:
+    image: my-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Qwerty@12345
+    ports:
+      - 3306:3306
+  javaecommerce:
+    image: java-web-login
+    ports:
+      - 8086:8080
+
