@@ -7,8 +7,17 @@ services:
       - MYSQL_ROOT_PASSWORD=Qwerty@12345
     ports:
       - 3306:3306
+    restart: always
   javaecommerce:
     image: java-web-login
+    expose:
+      - "8080"
     ports:
       - 8086:8080
-
+    environment:
+      - dbDriver=com.mysql.jdbc.Driver
+      - dbConnectionUrl=jdbc:mysql://mysql:3306/sample
+      - dbUserName=root
+      - dbPassword=Qwerty@12345
+    links:
+      - mysqlapp
